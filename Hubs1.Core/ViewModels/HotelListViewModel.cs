@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Hubs1.Core.Utils;
@@ -8,6 +9,9 @@ namespace Hubs1.Core.ViewModels
 {
     public class HotelListViewModel : BaseViewModel
     {
+        private const string url = "http://weixin.hubs1.net/api/v1/app/open/hotel/searchHotel.json?token=0";
+
+        string body = "{ \"citycode\":\"Shanghai\", \"checkin\":\"2015-11-09\", \"nights\":1, \"mylng\":121.47370400, \"mylat\":31.23039300, \"isBaiduLngLat\":true, \"order\":1, \"stars\": \"0,1,3,4,5\", \"minPrice\":0, \"maxPrice\":60000, \"canUseCoupon\":false, \"canBooking\":false, \"brandId\":\"\", \"district\":\"\", \"serviceFacility\":\"\", \"keyword\":\"\", \"distance\":10000, \"searchSource\":2, \"pageSize\":20, \"page\":1 }";
         private List<HotelDataModel> _list;
         public List<HotelDataModel> List
         {
@@ -26,16 +30,24 @@ namespace Hubs1.Core.ViewModels
                 item.GetDistance(longt, lat);
             }
             List = List.OrderBy(m => m.Distance).ToList();
-            base.IsLoading = false;
+         
         }
         public void Init()
         {
+            GeneralAsyncLoad(url, ProcessResponse, body);
             _list = new List<HotelDataModel>();
         }
 
+        private void ProcessResponse(Stream stream)
+        {
+            StreamReader reader = new StreamReader(stream);
+            string text = reader.ReadToEnd();
+
+        }
 
         public void InitializationData()
         {
+         
             _list.Add(new HotelDataModel() { Latitude = 31.21938946823591, Longitude = 121.44572496414184, Name = "金门大酒店" });
             _list.Add(new HotelDataModel() { Latitude = 31.230000, Longitude = 121.476000, Name = "PMS 中软测试酒店" });
             _list.Add(new HotelDataModel() { Latitude = 31.220894186037426, Longitude = 121.46296620368957, Name = "新锦江大酒店" });

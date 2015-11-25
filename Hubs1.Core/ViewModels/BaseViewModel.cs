@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net;
+using System.Text;
 using Cirrious.CrossCore;
 using Cirrious.CrossCore.Platform;
 using Cirrious.MvvmCross.ViewModels;
@@ -18,7 +19,7 @@ namespace Hubs1.Core.ViewModels
             set
             {
                 _isLoading = value;
-                RaisePropertyChanged(()=>IsLoading);
+                RaisePropertyChanged(() => IsLoading);
             }
         }
 
@@ -27,14 +28,41 @@ namespace Hubs1.Core.ViewModels
             Mvx.Resolve<IErrorReporter>().ReportError(error);
         }
 
-        protected void GeneralAsyncLoad(string url, Action<Stream> responseStreamHandler)
+        protected void GeneralAsyncLoad(string url, Action<Stream> responseStreamHandler, string body)
         {
             try
             {
                 IsLoading = true;
                 MvxTrace.Trace("Fetching {0}", url);
                 var request = WebRequest.Create(url);
-                request.BeginGetResponse((result) => GeneralProcessResponse(request, result, responseStreamHandler), null);
+                WebHeaderCollection header = new WebHeaderCollection();
+                Encoding encoding = Encoding.UTF8;
+                request.Method = "POST";
+                byte[] buffer = encoding.GetBytes(body);
+                header["Content-Type"] = "application/json";
+                header["Content-Length"] = buffer.Length.ToString();
+
+
+                request.BeginGetRequestStream((requestResult) =>
+                 {
+                     try
+                     {
+                         using (var stream = request.EndGetRequestStream(requestResult))
+                         {
+                             stream.Write(buffer, 0, buffer.Length);
+                             request.BeginGetResponse((result) => GeneralProcessResponse(request, result, responseStreamHandler), null);
+                         }
+
+                     }
+                     catch (Exception exception)
+                     {
+                         ReportError("Sorry - problem seen " + exception.Message);
+                     }
+                 }, null);
+
+                // 使用 POST 方法请求的时候，实际的参数通过请求的 Body 部分以流的形式传送
+
+
             }
             catch (Exception exception)
             {
