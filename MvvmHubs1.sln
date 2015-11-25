@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hubs1.Droid", "Hubs1.Droid\Hubs1.Droid.csproj", "{7FCFF962-3DE8-407E-B396-3ED1238D5801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hubs1.Core", "Hubs1.Core\Hubs1.Core.csproj", "{CAF7A4DD-2AEC-4EAC-87B5-CA80D7B2B01A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AndroidSDKApi", "AndroidSDKApi", "{DF793E75-4888-49B8-9E78-16B31DC7E1DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlipayApi", "AndroidSDKApi\AlipayApi\AlipayApi.csproj", "{57A4C014-690A-4FDD-A441-1EBE4139EAE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeixinApi", "AndroidSDKApi\WeixinApi\WeixinApi.csproj", "{420C1551-9ABF-446F-8D47-DEB6A75D17EE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BaiduMapApi", "AndroidSDKApi\BaiduMapApi\BaiduMapApi.csproj", "{7E33D08B-9E30-43C3-8262-97C9367CB90B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FCFF962-3DE8-407E-B396-3ED1238D5801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FCFF962-3DE8-407E-B396-3ED1238D5801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FCFF962-3DE8-407E-B396-3ED1238D5801}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7FCFF962-3DE8-407E-B396-3ED1238D5801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FCFF962-3DE8-407E-B396-3ED1238D5801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FCFF962-3DE8-407E-B396-3ED1238D5801}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CAF7A4DD-2AEC-4EAC-87B5-CA80D7B2B01A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF7A4DD-2AEC-4EAC-87B5-CA80D7B2B01A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF7A4DD-2AEC-4EAC-87B5-CA80D7B2B01A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF7A4DD-2AEC-4EAC-87B5-CA80D7B2B01A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57A4C014-690A-4FDD-A441-1EBE4139EAE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57A4C014-690A-4FDD-A441-1EBE4139EAE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57A4C014-690A-4FDD-A441-1EBE4139EAE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57A4C014-690A-4FDD-A441-1EBE4139EAE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420C1551-9ABF-446F-8D47-DEB6A75D17EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420C1551-9ABF-446F-8D47-DEB6A75D17EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420C1551-9ABF-446F-8D47-DEB6A75D17EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420C1551-9ABF-446F-8D47-DEB6A75D17EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E33D08B-9E30-43C3-8262-97C9367CB90B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E33D08B-9E30-43C3-8262-97C9367CB90B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E33D08B-9E30-43C3-8262-97C9367CB90B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E33D08B-9E30-43C3-8262-97C9367CB90B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{57A4C014-690A-4FDD-A441-1EBE4139EAE0} = {DF793E75-4888-49B8-9E78-16B31DC7E1DF}
+		{420C1551-9ABF-446F-8D47-DEB6A75D17EE} = {DF793E75-4888-49B8-9E78-16B31DC7E1DF}
+		{7E33D08B-9E30-43C3-8262-97C9367CB90B} = {DF793E75-4888-49B8-9E78-16B31DC7E1DF}
+	EndGlobalSection
+EndGlobal

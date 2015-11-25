@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res/com.Hubs1.app"
+    android:layout_width="fill_parent"
+    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:id="@+id/myListItem"
+    android:paddingBottom="3dip"
+    android:paddingLeft="10dip"
+    local:MvxBind="Click ShowCategoryCommand">
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:id="@+id/itemTitle"
+        android:text="111"
+        android:textSize="20dip"
+        local:MvxBind="Text Name"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="2222"
+        android:id="@+id/itemText"
+        local:MvxBind="Text DistanceDescription"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+</LinearLayout>
