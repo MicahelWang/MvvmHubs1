@@ -2,6 +2,7 @@
 using Android.Nfc;
 using Android.OS;
 using Android.Util;
+using Android.Widget;
 using Cirrious.MvvmCross.Droid.Views;
 using Com.Baidu.Location;
 using Com.Baidu.Mapapi;
@@ -34,7 +35,7 @@ namespace Hubs1.Droid
             //设置option的属性
             LocationClientOption option = new LocationClientOption();
             option.SetLocationMode(LocationClientOption.LocationMode.HightAccuracy); //可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
-            option.CoorType = "gcj02"; //可选，默认gcj02，设置返回的定位结果坐标系，
+            option.CoorType = "bd09ll"; //可选，默认gcj02，设置返回的定位结果坐标系，
             const int interval = 0;
             option.ScanSpan = interval; //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
             option.SetIsNeedAddress(false); //可选，设置是否需要地址信息，默认不需要
@@ -62,8 +63,11 @@ namespace Hubs1.Droid
             Log.Info(Tag, "BDLocationListener OnReceiveLocation");
 
             int locType = location.LocType;
-            //longitude = location.Longitude;
-            //latitude = location.Latitude;
+
+            if (locType != 161)
+            {
+                Toast.MakeText(this, " 定位失败！", 0).Show();
+            }
             CurrentData.Latitude = location.Latitude;
             CurrentData.Longitude = location.Longitude;
         }
