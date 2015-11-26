@@ -177,7 +177,7 @@ namespace Hubs1.Droid.Views
             var map = FindViewById<MapView>(Resource.Id.bmapView);
             var mBaiduMap = map.Map;
             //位置
-            LatLng hotelLatLng = new LatLng(ViewModel.HotelData.Latitude, ViewModel.HotelData.Longitude);
+            LatLng hotelLatLng = new LatLng(ViewModel.HotelData.BaiduLat, ViewModel.HotelData.BaiduLon);
             OverlayOptions hotelOverlayOptions = new MarkerOptions()
                 .InvokeIcon(_hotelBitmap)
                 .InvokePosition(hotelLatLng)

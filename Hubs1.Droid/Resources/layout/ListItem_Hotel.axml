@@ -14,7 +14,7 @@
         android:id="@+id/itemTitle"
         android:text="111"
         android:textSize="20dip"
-        local:MvxBind="Text Name"
+        local:MvxBind="Text HotelName"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     <TextView
         android:layout_height="wrap_content"

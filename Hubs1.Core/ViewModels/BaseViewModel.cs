@@ -28,41 +28,48 @@ namespace Hubs1.Core.ViewModels
             Mvx.Resolve<IErrorReporter>().ReportError(error);
         }
 
-        protected void GeneralAsyncLoad(string url, Action<Stream> responseStreamHandler, string body)
+        protected void GeneralAsyncLoad(string url, Action<Stream> responseStreamHandler,string method="GET", string data="")
         {
             try
             {
                 IsLoading = true;
                 MvxTrace.Trace("Fetching {0}", url);
                 var request = WebRequest.Create(url);
-                WebHeaderCollection header = new WebHeaderCollection();
                 Encoding encoding = Encoding.UTF8;
-                request.Method = "POST";
-                byte[] buffer = encoding.GetBytes(body);
-                header["Content-Type"] = "application/json";
-                header["Content-Length"] = buffer.Length.ToString();
+                if (request != null)
+                {
+                    request.Method = method;
+                    
+                    request.ContentType = "application/json";
+                    if (method.ToUpper() == "POST")
+                    {
+                        byte[] buffer = encoding.GetBytes(data);
+                        request.BeginGetRequestStream((requestResult) =>
+                        {
+                            try
+                            {
+                                using (var stream = request.EndGetRequestStream(requestResult))
+                                {
+                                    stream.Write(buffer, 0, buffer.Length);
+                                    request.BeginGetResponse(
+                                        (result) => GeneralProcessResponse(request, result, responseStreamHandler), null);
+                                }
 
-
-                request.BeginGetRequestStream((requestResult) =>
-                 {
-                     try
-                     {
-                         using (var stream = request.EndGetRequestStream(requestResult))
-                         {
-                             stream.Write(buffer, 0, buffer.Length);
-                             request.BeginGetResponse((result) => GeneralProcessResponse(request, result, responseStreamHandler), null);
-                         }
-
-                     }
-                     catch (Exception exception)
-                     {
-                         ReportError("Sorry - problem seen " + exception.Message);
-                     }
-                 }, null);
-
-                // 使用 POST 方法请求的时候，实际的参数通过请求的 Body 部分以流的形式传送
-
-
+                            }
+                            catch (Exception exception)
+                            {
+                                IsLoading = false;
+                                ReportError("Sorry - problem seen " + exception.Message);
+                            }
+                        }, null);
+                    }
+                    else
+                    {
+                        request.BeginGetResponse(
+                                       (result) => GeneralProcessResponse(request, result, responseStreamHandler), null);
+                    }
+                    
+                }
             }
             catch (Exception exception)
             {
