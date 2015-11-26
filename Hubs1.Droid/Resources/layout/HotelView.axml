@@ -24,7 +24,8 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:padding="8dp"
-                android:src="@drawable/icon" />
+                android:src="@drawable/icon"
+                local:MvxBind="ImageUrl OrderData.coverPic" />
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="fill_parent"
@@ -32,7 +33,7 @@
                 android:layout_marginLeft="6dip"
                 android:layout_marginTop="6dip"
                 android:layout_toRightOf="@id/BookImageView"
-                local:MvxBind="Text HotelData.Name"
+                local:MvxBind="Text OrderData.Base.HotelName"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
             <TextView
                 android:id="@+id/text2"
@@ -40,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text1"
                 android:layout_toRightOf="@id/BookImageView"
-                local:MvxBind="Text  HotelData.Longitude"
+                local:MvxBind="Text   OrderData.Base.BaiduLon"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
             <TextView
                 android:id="@+id/text3"
@@ -48,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/text2"
                 android:layout_toRightOf="@id/BookImageView"
-                local:MvxBind="Text  HotelData.Latitude"
+                local:MvxBind="Text   OrderData.Base.BaiduLat"
                 android:textAppearance="?android:attr/textAppearanceSmall" />
             <Button
                 android:id="@+id/btnPay"

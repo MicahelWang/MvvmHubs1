@@ -3,15 +3,15 @@
     xmlns:local="http://schemas.android.com/apk/res/com.Hubs1.app"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
-    <ProgressBar
+<!--<ProgressBar
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        local:MvxBind="Visibility IsLoading,Converter=Visibility" />
+        local:MvxBind="Visibility IsLoading,Converter=Visibility" />-->
     <Mvx.MvxListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
         local:MvxItemTemplate="@layout/listitem_hotel"
-        local:MvxBind="ItemsSource List" />
+        local:MvxBind="ItemsSource PageDataModel.List" />
 </FrameLayout>

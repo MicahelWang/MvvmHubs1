@@ -173,7 +173,7 @@ namespace Hubs1.Droid.Views
             var map = FindViewById<MapView>(Resource.Id.bmapView);
             var mBaiduMap = map.Map;
             //位置
-            LatLng hotelLatLng = new LatLng(ViewModel.HotelData.BaiduLat, ViewModel.HotelData.BaiduLon);
+            LatLng hotelLatLng = new LatLng(ViewModel.OrderData.Base.BaiduLat, ViewModel.OrderData.Base.BaiduLon);
             OverlayOptions hotelOverlayOptions = new MarkerOptions()
                 .InvokeIcon(_hotelBitmap)
                 .InvokePosition(hotelLatLng)
@@ -192,7 +192,7 @@ namespace Hubs1.Droid.Views
                 .InvokeZIndex(9);
             Marker locationMarker = mBaiduMap.AddOverlay(locationOverlayOptions).JavaCast<Marker>();
 
-            var zoomLevel = BaseHelper.GetZoomLevel(ViewModel.HotelData.Distance);
+            var zoomLevel = BaseHelper.GetZoomLevel(ViewModel.OrderData.Base.Distance/1000);
             //设置居中
             var mMapStatusUpdate = MapStatusUpdateFactory.NewLatLngZoom(hotelLatLng, zoomLevel);
             //改变地图状态

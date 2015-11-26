@@ -214,12 +214,6 @@ namespace Hubs1.Droid
 			// aapt resource value: 0x7f070007
 			public const int bmapView = 2131165191;
 			
-			// aapt resource value: 0x7f07000b
-			public const int btnIOS6 = 2131165195;
-			
-			// aapt resource value: 0x7f07000c
-			public const int btnIOS7 = 2131165196;
-			
 			// aapt resource value: 0x7f070006
 			public const int btnPay = 2131165190;
 			
@@ -270,10 +264,7 @@ namespace Hubs1.Droid
 			public const int SplashScreen = 2130903043;
 			
 			// aapt resource value: 0x7f030004
-			public const int ThridView = 2130903044;
-			
-			// aapt resource value: 0x7f030005
-			public const int ToastLayout_Error = 2130903045;
+			public const int ToastLayout_Error = 2130903044;
 			
 			static Layout()
 			{

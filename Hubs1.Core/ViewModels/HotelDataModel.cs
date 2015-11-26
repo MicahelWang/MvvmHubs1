@@ -6,7 +6,7 @@ namespace Hubs1.Core.ViewModels
 {
     public class HotelDataModel : BaseViewModel
     {
-        public int? GroupId { get; set; }
+        public string GroupId { get; set; } = "";
         public int BrandId { get; set; }
         public int HotelCode { get; set; }
         public string HotelInvitationCode { get; set; }
@@ -34,16 +34,11 @@ namespace Hubs1.Core.ViewModels
         public string CityCode { get; set; }
         public string CoverPic { get; set; }
         public bool IsMerchantHotel { get; set; }
-
         public string DistanceDescription=> $"距离{Distance} m";
         public override string ToString()
         {
             return $"距离{Distance} m";
         }
-
-        public ICommand ViewHotelCommand
-        {
-            get { return new MvxCommand(() => ShowViewModel<HotelViewModel>(new { hotelData= this })); }
-        }
+       
     }
 }

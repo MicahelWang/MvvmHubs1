@@ -107,7 +107,6 @@
     <Compile Include="Utils\weixin\Util.cs" />
     <Compile Include="Utils\weixin\WeixinpayHelper.cs" />
     <Compile Include="Views\HotelListView.cs" />
-    <Compile Include="Views\ThridView.cs" />
     <Compile Include="Views\HotelView.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -120,9 +119,6 @@
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\ThridView.axml">
-      <SubType>AndroidResource</SubType>
-    </AndroidResource>
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\HotelListView.axml">

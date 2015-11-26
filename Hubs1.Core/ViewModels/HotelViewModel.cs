@@ -5,39 +5,27 @@ namespace Hubs1.Core.ViewModels
 {
     public class HotelViewModel : BaseViewModel
     {
-        private HotelDataModel _hotelData;
+        private OrderDataModel _orderData;
 
-        public HotelDataModel HotelData
+        public OrderDataModel OrderData
         {
             get
             {
-                return _hotelData;
+                return _orderData;
             }
-
             set
             {
-                _hotelData = value;
-                RaisePropertyChanged(() => HotelData);
+                _orderData = value;
+                RaisePropertyChanged(() => OrderData);
             }
         }
 
         public string PayInfo => "支付";
 
-        public void Init(HotelDataModel hotelData)
+        public void Init(OrderDataModel orderData)
         {
-            HotelData = hotelData;
-        }
-        public ICommand PayCommand
-        {
-            get { return new MvxCommand(() => { }); }
+            OrderData = orderData;
         }
     }
 
-    public class ThridViewModel : BaseViewModel
-    {
-       
-        public string TxtBtnIos6 => "IOS6 Style";
-        public string TxtBtnIos7 => "IOS7 Style";
-        
-    }
 }

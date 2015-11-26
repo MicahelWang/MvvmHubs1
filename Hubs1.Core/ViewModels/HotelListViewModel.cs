@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using Cirrious.CrossCore.Platform;
-using Hubs1.Core.Models;
 using Hubs1.Core.Utils;
 
 namespace Hubs1.Core.ViewModels
@@ -14,11 +9,20 @@ namespace Hubs1.Core.ViewModels
 
         private const string Url = "http://weixin.hubs1.net/api/v1/app/open/hotel/searchHotel.json?token=0";
 
-        private List<HotelDataModel> _list;
-        public List<HotelDataModel> List
+        private PageDataModel<OrderDataModel> _pageDataModel;
+
+        public PageDataModel<OrderDataModel> PageDataModel
         {
-            get { return _list; }
-            set { _list = value; RaisePropertyChanged(() => List); }
+            get
+            {
+                return _pageDataModel;
+            }
+
+            set
+            {
+                _pageDataModel = value;
+                RaisePropertyChanged(() => PageDataModel);
+            }
         }
 
         public void SetCurrentPosition(double lng, double lat)
@@ -40,13 +44,11 @@ namespace Hubs1.Core.ViewModels
         }
         private void ProcessResponse(Stream stream)
         {
-            var reader = new StreamReader(stream);
-            var text = reader.ReadToEnd();
-            var pageModel = text.DeserializeJsonToObject<PageModel>();
-            if (pageModel?.List == null) return;
-            var list = pageModel.List.Select(item => item.Base).ToList();
-            List = list;
-            MvxTrace.Trace("加载结束  行数{0}", List.Count);
+            using (var reader = new StreamReader(stream))
+            {
+                var text = reader.ReadToEnd();
+                PageDataModel = text.DeserializeJsonToObject<PageDataModel<OrderDataModel>>();
+            }
         }
 
         class RequestFliter

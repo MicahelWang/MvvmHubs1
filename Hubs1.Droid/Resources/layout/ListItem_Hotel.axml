@@ -14,13 +14,13 @@
         android:id="@+id/itemTitle"
         android:text="111"
         android:textSize="20dip"
-        local:MvxBind="Text HotelName"
+        local:MvxBind="Text Base.HotelName"
         android:textAppearance="?android:attr/textAppearanceLarge" />
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
         android:text="2222"
         android:id="@+id/itemText"
-        local:MvxBind="Text DistanceDescription"
+        local:MvxBind="Text Base.DistanceDescription"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 </LinearLayout>
