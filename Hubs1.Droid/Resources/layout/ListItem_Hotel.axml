@@ -7,7 +7,7 @@
     android:id="@+id/myListItem"
     android:paddingBottom="3dip"
     android:paddingLeft="10dip"
-    local:MvxBind="Click ShowCategoryCommand">
+    local:MvxBind="Click ViewHotelCommand">
     <TextView
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"

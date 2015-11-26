@@ -2,7 +2,7 @@
 
 namespace Hubs1.Core.Models
 {
-    public class OrderModel
+    public class OrderModel : BaseViewModel
     {
         public string Checkin { get; set; }
         public string Checkout { get; set; }

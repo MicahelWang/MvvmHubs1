@@ -19,7 +19,6 @@ namespace Hubs1.Droid.Views
         protected override void OnViewModelSet()
         {
             SDKInitializer.Initialize(ApplicationContext);
-
             SetContentView(Resource.Layout.HotelListView);
             ViewModel.SetCurrentPosition(CurrentData.Longitude, CurrentData.Latitude);
         }

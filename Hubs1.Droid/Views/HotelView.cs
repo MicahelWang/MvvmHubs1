@@ -23,7 +23,7 @@ namespace Hubs1.Droid.Views
         private readonly BitmapDescriptor _hotelBitmap = BitmapDescriptorFactory.FromResource(Resource.Drawable.dot);
         private readonly BitmapDescriptor _localtionBitmap = BitmapDescriptorFactory.FromResource(Resource.Drawable.map_location);
         private Handler _handler;
-        private WeixinpayHelper weixinpayHelper;
+        private WeixinpayHelper _weixinpayHelper;
 
         private const string Tag = "HotelView";
         public new HotelViewModel ViewModel
@@ -58,7 +58,6 @@ namespace Hubs1.Droid.Views
                             PayResult payResult = new PayResult((string)msg.Obj);
 
                             // 支付宝返回此次支付结果及加签，建议对支付宝签名信息拿签约时支付宝提供的公钥做验签
-                            string resultInfo = payResult.Result;
 
                             string resultStatus = payResult.ResultStatus;
 
@@ -114,9 +113,6 @@ namespace Hubs1.Droid.Views
             var alipayItem = new ActionSheetArgs("支付宝");
             alipayItem.OnClick += () =>
             {
-
-
-
                 if (!AlipayHelper.CheckConfig())
                 {
                     Toast.MakeText(ApplicationContext,
@@ -152,8 +148,8 @@ namespace Hubs1.Droid.Views
                 Toast.MakeText(this, " 微信 click", 0).Show();
                 Runnable wxpayRunnable = new Runnable(() =>
                 {
-                    weixinpayHelper = new WeixinpayHelper(this);
-                    weixinpayHelper.Execute();
+                    _weixinpayHelper = new WeixinpayHelper(this);
+                    _weixinpayHelper.Execute();
                 });
 
                 // 必须异步调用

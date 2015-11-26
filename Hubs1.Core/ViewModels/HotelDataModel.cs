@@ -35,10 +35,15 @@ namespace Hubs1.Core.ViewModels
         public string CoverPic { get; set; }
         public bool IsMerchantHotel { get; set; }
 
-        public string DistanceDescription=> $"距离{Distance} km";
+        public string DistanceDescription=> $"距离{Distance} m";
         public override string ToString()
         {
-            return $"距离{Distance} km";
+            return $"距离{Distance} m";
+        }
+
+        public ICommand ViewHotelCommand
+        {
+            get { return new MvxCommand(() => ShowViewModel<HotelViewModel>(new { hotelData= this })); }
         }
     }
 }
