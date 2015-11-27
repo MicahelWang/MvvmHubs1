@@ -21,9 +21,10 @@ namespace Hubs1.Droid
         protected override void InitializeLastChance()
         {
             var errorHandler = new ErrorDisplayer(ApplicationContext);
-            //Cirrious.MvvmCross.Plugins.Visibility.PluginLoader.Instance.EnsureLoaded();
-            //Cirrious.MvvmCross.Plugins.File.PluginLoader.Instance.EnsureLoaded();
-            //Cirrious.MvvmCross.Plugins.DownloadCache.PluginLoader.Instance.EnsureLoaded();
+            Cirrious.MvvmCross.Plugins.Visibility.PluginLoader.Instance.EnsureLoaded();
+            Cirrious.MvvmCross.Plugins.File.PluginLoader.Instance.EnsureLoaded();
+            Cirrious.MvvmCross.Plugins.DownloadCache.PluginLoader.Instance.EnsureLoaded();
+            Cirrious.MvvmCross.Plugins.Json.PluginLoader.Instance.EnsureLoaded();
             base.InitializeLastChance();
         }
     }
