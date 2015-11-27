@@ -1,8 +1,9 @@
 ﻿using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
 
-namespace Hubs1.Core.ViewModels
-{
+namespace Hubs1.Core.ViewModels.DataModel{
+    
+
     public class OrderDataModel : BaseViewModel
     {
         public string Checkin { get; set; }
@@ -16,7 +17,7 @@ namespace Hubs1.Core.ViewModels
 
         public ICommand ViewHotelCommand
         {
-            get { return new MvxCommand(() => ShowViewModel<HotelViewModel>(this)); }
+            get { return new MvxCommand(() => ShowViewModel<HotelViewModel>(this.Base)); }
         }
     }
 }

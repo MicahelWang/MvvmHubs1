@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Hubs1.Core.Utils;
+using Hubs1.Core.ViewModels.DataModel;
 
 namespace Hubs1.Core.ViewModels
 {
@@ -9,19 +10,19 @@ namespace Hubs1.Core.ViewModels
 
         private const string Url = "http://weixin.hubs1.net/api/v1/app/open/hotel/searchHotel.json?token=0";
 
-        private PageDataModel<OrderDataModel> _pageDataModel;
+        private PageListDataModel<OrderDataModel> _pageList;
 
-        public PageDataModel<OrderDataModel> PageDataModel
+        public PageListDataModel<OrderDataModel> PageList
         {
             get
             {
-                return _pageDataModel;
+                return _pageList;
             }
 
             set
             {
-                _pageDataModel = value;
-                RaisePropertyChanged(() => PageDataModel);
+                _pageList = value;
+                RaisePropertyChanged(() => PageList);
             }
         }
 
@@ -47,10 +48,11 @@ namespace Hubs1.Core.ViewModels
             using (var reader = new StreamReader(stream))
             {
                 var text = reader.ReadToEnd();
-                PageDataModel = text.DeserializeJsonToObject<PageDataModel<OrderDataModel>>();
+                PageList = text.DeserializeJsonToObject<PageListDataModel<OrderDataModel>>();
             }
         }
 
+        #region 检索对象
         class RequestFliter
         {
             //"brandId": "",
@@ -94,6 +96,7 @@ namespace Hubs1.Core.ViewModels
             //"stars": "0,1,3,4,5"
             public string stars { get; set; } = "";
         }
+        #endregion
 
     }
 }

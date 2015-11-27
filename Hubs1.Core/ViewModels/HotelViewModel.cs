@@ -1,5 +1,7 @@
 ﻿using System.Windows.Input;
 using Cirrious.MvvmCross.ViewModels;
+using Hubs1.Core.Utils;
+using Hubs1.Core.ViewModels.DataModel;
 
 namespace Hubs1.Core.ViewModels
 {
@@ -22,9 +24,13 @@ namespace Hubs1.Core.ViewModels
 
         public string PayInfo => "支付";
 
-        public void Init(OrderDataModel orderData)
+        public void Init(HotelDataModel hotelData)
         {
-            OrderData = orderData;
+            OrderData = new OrderDataModel
+            {
+                CoverPic = "",
+                Base = hotelData
+            };
         }
     }
 

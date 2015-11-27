@@ -1,8 +1,4 @@
-﻿using System;
-using System.Windows.Input;
-using Cirrious.MvvmCross.ViewModels;
-
-namespace Hubs1.Core.ViewModels
+﻿namespace Hubs1.Core.ViewModels.DataModel
 {
     public class HotelDataModel : BaseViewModel
     {

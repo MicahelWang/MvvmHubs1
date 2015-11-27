@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Hubs1.Core.ViewModels
+namespace Hubs1.Core.ViewModels.DataModel
 {
-    public class PageDataModel<T> : BaseViewModel
+    public class PageListDataModel<T> : BaseViewModel
     {
         public int CurrentPage { get; set; }
         public bool HasNext { get; set; }

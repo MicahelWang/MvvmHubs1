@@ -13,5 +13,5 @@
         android:layout_height="fill_parent"
         android:orientation="vertical"
         local:MvxItemTemplate="@layout/listitem_hotel"
-        local:MvxBind="ItemsSource PageDataModel.List" />
+        local:MvxBind="ItemsSource PageList.List" />
 </FrameLayout>

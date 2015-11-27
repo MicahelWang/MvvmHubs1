@@ -25,7 +25,7 @@
                 android:layout_height="80dp"
                 android:padding="8dp"
                 android:src="@drawable/icon"
-                local:MvxBind="ImageUrl OrderData.coverPic" />
+                local:MvxBind="ImageUrl OrderData.CoverPic" />
             <TextView
                 android:id="@+id/text1"
                 android:layout_width="fill_parent"
