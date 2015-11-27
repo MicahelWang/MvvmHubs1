@@ -80,14 +80,23 @@
       <HintPath>..\packages\MvvmCross.HotTuna.CrossCore.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.Localization.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Cirrious.MvvmCross.Plugins.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmCross.HotTuna.Plugin.Json.3.5.1\lib\MonoAndroid\Cirrious.MvvmCross.Plugins.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrap\JsonPluginBootstrap.cs" />
     <Compile Include="Utils\BaseHelper.cs" />
     <Compile Include="Utils\ActionSheet.cs" />
     <Compile Include="Utils\alipay\AliPayHelper.cs" />
@@ -116,6 +125,7 @@
     <AndroidNativeLibrary Include="libs\armeabi-v7a\liblocSDK6a.so" />
     <AndroidNativeLibrary Include="libs\armeabi\libBaiduMapSDK_v3_5_0_31.so" />
     <AndroidNativeLibrary Include="libs\armeabi\liblocSDK6a.so" />
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
