@@ -38,7 +38,7 @@ namespace Hubs1.Droid
             option.CoorType = "bd09ll"; //可选，默认gcj02，设置返回的定位结果坐标系，
             const int interval = 0;
             option.ScanSpan = interval; //可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
-            option.SetIsNeedAddress(false); //可选，设置是否需要地址信息，默认不需要
+			option.SetIsNeedAddress(true); //可选，设置是否需要地址信息，默认不需要
             option.OpenGps = true; //可选，默认false,设置是否使用gps
             option.LocationNotify = true; //可选，默认false，设置是否当gps有效时按照1S1次频率输出GPS结果
             option.SetIgnoreKillProcess(true); //可选，默认true，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认不杀死
@@ -70,6 +70,7 @@ namespace Hubs1.Droid
             }
             CurrentData.Latitude = location.Latitude;
             CurrentData.Longitude = location.Longitude;
+			CurrentData.Address = location.AddrStr;
         }
     }
 }

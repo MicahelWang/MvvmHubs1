@@ -145,7 +145,6 @@ namespace Hubs1.Droid.Views
             var weixinItem = new ActionSheetArgs("微信");
             weixinItem.OnClick += () =>
             {
-                Toast.MakeText(this, " 微信 click", 0).Show();
                 Runnable wxpayRunnable = new Runnable(() =>
                 {
                     _weixinpayHelper = new WeixinpayHelper(this);

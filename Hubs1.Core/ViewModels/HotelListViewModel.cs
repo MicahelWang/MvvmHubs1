@@ -64,7 +64,7 @@ namespace Hubs1.Core.ViewModels
             //"checkin": "2015-11-09",
             public string checkin { get; set; } = DateTime.Now.ToString("yyyy-MM-dd");
             //"citycode": "Shanghai",
-            public string citycode { get; set; } = "Shanghai";
+            public string citycode { get; set; } = "Suzhou";
             //"distance": 10000,
             public int distance { get; set; } = 10000;
             //"district": "",
